@@ -4,334 +4,36 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <meta name="theme-color" content="#008c87"/>
-<title>하나카드 금융시사 문제은행 V2</title>
+<title>하나카드 금융시사 문제은행</title>
 <style>
-:root{
-  --bg:#f3f6f7; --card:#fff; --ink:#12191d; --muted:#65727a; --line:#d9e2e5;
-  --brand:#008c87; --brand2:#006b67; --soft:#edf8f7; --good:#137547; --bad:#b32636; --warn:#8c6500;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif}
-body{-webkit-text-size-adjust:100%}
-.app{max-width:940px;margin:0 auto;padding:16px 14px 70px}
-.hero{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:22px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.11)}
-.hero h1{margin:0 0 8px;font-size:25px;color:#fff}.hero p{margin:0;color:#fff;opacity:.95;line-height:1.55}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:16px}
-.stat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);border-radius:14px;padding:11px;color:#fff}
-.stat b{display:block;font-size:20px;color:#fff}.stat span{font-size:11px;color:#fff;opacity:.95}
-.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
-button{font:inherit}
-.nav button,.btn,.choice,.oxbtn,.chip{
-  border-radius:12px;border:1px solid var(--line);cursor:pointer;font-weight:750;
-}
-.nav button{padding:12px 8px;background:#fff;color:var(--ink);-webkit-text-fill-color:var(--ink)}
-.nav button.primary{background:var(--brand);color:#fff;-webkit-text-fill-color:#fff;border-color:var(--brand)}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:12px;box-shadow:0 4px 14px rgba(0,0,0,.04);color:var(--ink)}
-.panel *{color:var(--ink)}
-h2,h3{margin-top:0}
-.muted{color:var(--muted)!important}.mini{font-size:12.5px;color:var(--muted)!important}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chip{padding:8px 11px;background:#fff;color:var(--ink);-webkit-text-fill-color:var(--ink);font-size:13px}
-.chip:hover{border-color:#9cc8c5}
-.qmeta{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted)!important;margin-bottom:10px}
-.qmeta span{color:var(--muted)!important}
-.qtext{font-size:20px;line-height:1.6;font-weight:800;margin:8px 0 16px;color:var(--ink)}
-.choice{display:block;width:100%;text-align:left;margin:9px 0;padding:14px 14px;background:#fff;color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;font-size:15px;line-height:1.5}
-.choice:hover{border-color:#8ebbb8}.choice.selected{background:var(--soft);border-color:var(--brand)}
-.choice.correct{background:#eef9f1;border-color:#85c6a4}.choice.wrong{background:#fff0f2;border-color:#e4a0a9}
-.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.btn{padding:11px 14px;background:#fff;color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important}
-.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff!important;-webkit-text-fill-color:#fff!important}
-.btn.danger{color:var(--bad)!important;-webkit-text-fill-color:var(--bad)!important;border-color:#efc3c8}
-.explain{margin-top:16px;padding:15px;background:#f7fafb;border:1px solid var(--line);border-radius:14px;line-height:1.65}
-.explain .good{color:var(--good)!important}.explain .bad{color:var(--bad)!important}
-.source{margin-top:12px;padding-top:11px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)!important}
-.source a{color:var(--brand2)!important;font-weight:700}
-.hidden{display:none!important}
-.ox-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
-.oxbtn{padding:18px 10px;background:#fff;color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;font-size:24px}
-.oxbtn:hover{border-color:var(--brand)} .oxbtn.o{background:#eef9f1}.oxbtn.x{background:#fff0f2}
-.progressbar{height:8px;background:#e7edef;border-radius:999px;overflow:hidden;margin:10px 0 16px}
-.progressbar > div{height:100%;background:var(--brand);width:0}
-.list-item{padding:12px 0;border-bottom:1px solid var(--line)}.list-item:last-child{border-bottom:0}
-.badge{display:inline-block;border-radius:999px;padding:4px 8px;background:#eef2f3;font-size:11px;margin-right:5px}
-.notice{background:#fff8e9;border:1px solid #ecd7a6;border-radius:12px;padding:12px;line-height:1.55}
-footer{margin-top:16px;text-align:center;color:var(--muted);font-size:12px}
-@media(max-width:680px){
-  .app{padding:10px 10px 60px}
-  .hero{border-radius:18px;padding:18px}.hero h1{font-size:21px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .nav{grid-template-columns:repeat(2,1fr)}
-  .qtext{font-size:18px}
-  .choice{font-size:15px;padding:13px 12px}
-  .panel{padding:15px;border-radius:16px}
-}
+:root{--bg:#f3f6f7;--card:#fff;--ink:#12191d;--muted:#65727a;--line:#d9e2e5;--brand:#008c87;--brand2:#006b67;--soft:#edf8f7;--good:#137547;--bad:#b32636}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif}body{-webkit-text-size-adjust:100%}.app{max-width:940px;margin:0 auto;padding:16px 14px 70px}.hero{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:22px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.11)}.hero h1{margin:0 0 8px;font-size:25px;color:#fff}.hero p{margin:0;color:#fff;opacity:.95;line-height:1.55}.countline{margin-top:9px;font-weight:800;color:#fff;font-size:13px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:16px}.stat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);border-radius:14px;padding:11px;color:#fff}.stat b{display:block;font-size:20px;color:#fff}.stat span{font-size:11px;color:#fff;opacity:.95}.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}button{font:inherit}.nav button,.btn,.choice,.oxbtn,.chip{border-radius:12px;border:1px solid var(--line);cursor:pointer;font-weight:750}.nav button{padding:12px 8px;background:#fff;color:var(--ink);-webkit-text-fill-color:var(--ink)}.nav button.primary{background:var(--brand);color:#fff;-webkit-text-fill-color:#fff;border-color:var(--brand)}.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:12px;box-shadow:0 4px 14px rgba(0,0,0,.04);color:var(--ink)}.panel *{color:var(--ink)}h2,h3{margin-top:0}.muted{color:var(--muted)!important}.mini{font-size:12.5px;color:var(--muted)!important}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{padding:8px 11px;background:#fff;color:var(--ink);-webkit-text-fill-color:var(--ink);font-size:13px}.qmeta{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted)!important;margin-bottom:10px}.qmeta span{color:var(--muted)!important}.qtext{font-size:20px;line-height:1.6;font-weight:800;margin:8px 0 16px;color:var(--ink)}.choice{display:block;width:100%;text-align:left;margin:9px 0;padding:14px;background:#fff;color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;font-size:15px;line-height:1.5}.choice.selected{background:var(--soft);border-color:var(--brand)}.choice.correct{background:#eef9f1;border-color:#85c6a4}.choice.wrong{background:#fff0f2;border-color:#e4a0a9}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.btn{padding:11px 14px;background:#fff;color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important}.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff!important;-webkit-text-fill-color:#fff!important}.explain{margin-top:16px;padding:15px;background:#f7fafb;border:1px solid var(--line);border-radius:14px;line-height:1.65}.explain .good{color:var(--good)!important}.explain .bad{color:var(--bad)!important}.source{margin-top:12px;padding-top:11px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)!important}.source a{color:var(--brand2)!important;font-weight:700}.hidden{display:none!important}.ox-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.oxbtn{padding:18px 10px;background:#fff;color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;font-size:24px}.oxbtn.o{background:#eef9f1}.oxbtn.x{background:#fff0f2}.progressbar{height:8px;background:#e7edef;border-radius:999px;overflow:hidden;margin:10px 0 16px}.progressbar>div{height:100%;background:var(--brand);width:0}.list-item{padding:12px 0;border-bottom:1px solid var(--line)}.badge{display:inline-block;border-radius:999px;padding:4px 8px;background:#eef2f3;font-size:11px;margin-right:5px}.notice{background:#fff8e9;border:1px solid #ecd7a6;border-radius:12px;padding:12px;line-height:1.55}footer{margin-top:16px;text-align:center;color:var(--muted);font-size:12px}@media(max-width:680px){.app{padding:10px 10px 60px}.hero{border-radius:18px;padding:18px}.hero h1{font-size:21px}.stats{grid-template-columns:repeat(2,1fr)}.nav{grid-template-columns:repeat(2,1fr)}.qtext{font-size:18px}.choice{font-size:15px;padding:13px 12px}.panel{padding:15px;border-radius:16px}}
 </style>
 </head>
 <body>
 <div class="app">
-  <section class="hero">
-    <h1>하나카드 금융시사 문제은행 V2</h1>
-    <p>난이도를 높인 상황형 객관식 + 빠르게 훑는 OX 스피드 학습. 모바일 화면에도 맞게 최적화했습니다.</p>
-    <div class="stats">
-      <div class="stat"><b id="solved">0</b><span>객관식 학습</span></div>
-      <div class="stat"><b id="acc">0%</b><span>객관식 정답률</span></div>
-      <div class="stat"><b id="oxSolved">0</b><span>OX 학습</span></div>
-      <div class="stat"><b id="wrongCnt">0</b><span>오답</span></div>
-    </div>
-  </section>
-
-  <div class="nav">
-    <button class="primary" onclick="startMC('all')">실전 객관식</button>
-    <button onclick="startOX()">OX 스피드</button>
-    <button onclick="startMC('wrong')">오답만</button>
-    <button onclick="showBank()">전체 문제</button>
-  </div>
-
-  <section id="home" class="panel">
-    <h2>분야 선택</h2>
-    <div id="chips" class="chips"></div>
-    <div class="notice" style="margin-top:14px">
-      <b>추천 사용법</b><br>
-      OX로 개념을 빠르게 훑고 → 실전 객관식으로 적용 → 틀린 문제만 반복하면 됩니다.
-    </div>
-  </section>
-
-  <section id="mcPanel" class="panel hidden">
-    <div class="qmeta"><span id="mcProg"></span><span id="mcMeta"></span></div>
-    <div class="progressbar"><div id="mcBar"></div></div>
-    <div id="mcQ" class="qtext"></div>
-    <div id="mcChoices"></div>
-    <div class="actions">
-      <button id="mcCheck" class="btn primary" onclick="checkMC()">정답 확인</button>
-      <button id="favBtn" class="btn" onclick="toggleFav()">☆ 즐겨찾기</button>
-      <button id="mcNext" class="btn hidden" onclick="nextMC()">다음 문제</button>
-    </div>
-    <div id="mcExplain" class="explain hidden"></div>
-  </section>
-
-  <section id="oxPanel" class="panel hidden">
-    <div class="qmeta"><span id="oxProg"></span><span>OX 스피드</span></div>
-    <div class="progressbar"><div id="oxBar"></div></div>
-    <div id="oxQ" class="qtext"></div>
-    <div class="ox-wrap">
-      <button class="oxbtn o" onclick="answerOX(true)">O</button>
-      <button class="oxbtn x" onclick="answerOX(false)">X</button>
-    </div>
-    <div id="oxExplain" class="explain hidden"></div>
-    <div class="actions">
-      <button id="oxNext" class="btn primary hidden" onclick="nextOX()">다음</button>
-    </div>
-  </section>
-
-  <section id="bank" class="panel hidden">
-    <h2>전체 문제</h2>
-    <div id="bankList"></div>
-  </section>
-
-  <section id="result" class="panel hidden">
-    <h2>학습 완료</h2>
-    <div id="resultText"></div>
-    <div class="actions">
-      <button class="btn primary" onclick="goHome()">홈으로</button>
-      <button class="btn" onclick="startMC('wrong')">오답 다시 풀기</button>
-    </div>
-  </section>
-
-  <footer>학습 기록은 이 브라우저의 localStorage에 저장됩니다.</footer>
+<section class="hero"><h1>하나카드 금융시사 문제은행</h1><p>상황형 고난도 객관식과 빠른 OX 회독용 문제은행입니다.</p><div class="countline">객관식 100문제 · OX 100문제 · 총 200문제</div><div class="stats"><div class="stat"><b id="solved">0</b><span>객관식 학습</span></div><div class="stat"><b id="acc">0%</b><span>객관식 정답률</span></div><div class="stat"><b id="oxSolved">0</b><span>OX 학습</span></div><div class="stat"><b id="wrongCnt">0</b><span>오답</span></div></div></section>
+<div class="nav"><button class="primary" onclick="startMC('all')">실전 20문제</button><button onclick="startOX()">OX 30문제</button><button onclick="startMC('wrong')">오답만</button><button onclick="showBank()">전체 문제</button></div>
+<section id="home" class="panel"><h2>분야 선택</h2><div id="chips" class="chips"></div><div class="notice" style="margin-top:14px"><b>추천 루틴</b><br>OX 30문제 빠른 회독 → 실전 객관식 20문제 → 오답만 반복. 실제 금융시사 파트 20문항에 맞춰 실전 세트를 20문제로 구성했습니다.</div></section>
+<section id="mcPanel" class="panel hidden"><div class="qmeta"><span id="mcProg"></span><span id="mcMeta"></span></div><div class="progressbar"><div id="mcBar"></div></div><div id="mcQ" class="qtext"></div><div id="mcChoices"></div><div class="actions"><button id="mcCheck" class="btn primary" onclick="checkMC()">정답 확인</button><button id="favBtn" class="btn" onclick="toggleFav()">☆ 즐겨찾기</button><button id="mcNext" class="btn hidden" onclick="nextMC()">다음 문제</button></div><div id="mcExplain" class="explain hidden"></div></section>
+<section id="oxPanel" class="panel hidden"><div class="qmeta"><span id="oxProg"></span><span>OX 스피드</span></div><div class="progressbar"><div id="oxBar"></div></div><div id="oxQ" class="qtext"></div><div class="ox-wrap"><button class="oxbtn o" onclick="answerOX(true)">O</button><button class="oxbtn x" onclick="answerOX(false)">X</button></div><div id="oxExplain" class="explain hidden"></div><div class="actions"><button id="oxNext" class="btn primary hidden" onclick="nextOX()">다음</button></div></section>
+<section id="bank" class="panel hidden"><h2>전체 문제</h2><div id="bankList"></div></section>
+<section id="result" class="panel hidden"><h2>학습 완료</h2><div id="resultText"></div><div class="actions"><button class="btn primary" onclick="goHome()">홈으로</button><button class="btn" onclick="startMC('wrong')">오답 다시 풀기</button></div></section>
+<footer>학습 기록은 Safari/Chrome의 localStorage에 기기별로 저장됩니다.</footer>
 </div>
-
+<script src="questions.js?v=3"></script>
 <script>
-const MC = [
-{
- id:1, cat:"리스크관리", diff:"상",
- q:"A고객군은 금융수익률 14%, 예상손실률 4%, B고객군은 금융수익률 10%, 예상손실률 1%다. 기타 비용과 자본부담이 같다고 가정할 때 가장 적절한 판단은?",
- c:["A고객군은 수익률이 높으므로 항상 우수하다","B고객군은 예상손실률이 낮으므로 항상 우수하다","위험조정수익 관점에서 두 고객군의 순수익성을 함께 비교해야 한다","예상손실은 충당금 문제이므로 영업전략과 무관하다"],
- a:2,
- e:"리스크전략은 명목수익률이나 손실률 하나만 보지 않고 Risk와 Profit을 함께 본다. 단순화하면 수익률에서 예상손실과 비용, 자본부담을 차감한 위험조정수익 관점이 필요하다.",
- s:"카드업 리스크전략 일반 개념", u:"https://gongsi.crefia.or.kr/portal/creditcard/creditcardDisclosureDetail2", d:"2026-10"
-},
-{
- id:2, cat:"리스크관리", diff:"상",
- q:"특정 고객군의 연체율은 아직 안정적이지만, 현금서비스 이용빈도와 리볼빙 잔액이 빠르게 증가하고 있다. 리스크관리 관점에서 가장 적절한 대응은?",
- c:["현재 연체율이 낮으므로 아무 조치도 하지 않는다","향후 신용위험 증가 가능성을 조기경보 관점에서 추가 점검한다","해당 고객군의 모든 거래를 즉시 중단한다","가맹점 수수료율을 인상한다"],
- a:1,
- e:"현재 연체율은 후행지표 성격이 강할 수 있다. 이용행태 변화는 선행 위험신호가 될 수 있으므로 조기경보 지표로 활용해 추가 점검하는 접근이 적절하다.",
- s:"신용리스크 조기경보 일반 개념", u:"https://gongsi.crefia.or.kr/portal/creditcard/creditcardDisclosureDetail2", d:"2026-10"
-},
-{
- id:3, cat:"리스크관리", diff:"상",
- q:"경기 둔화로 특정 업종의 부실 가능성이 높아졌지만 아직 실제 연체율 상승은 크지 않다. 포트폴리오 리스크관리자가 가장 먼저 볼 항목으로 적절한 것은?",
- c:["해당 업종 익스포저 비중과 한도 소진 수준","카드 디자인 선호도","전체 회원 수만 확인","가맹점 광고비"],
- a:0,
- e:"산업위험이 높아질 때는 해당 업종 익스포저, 한도, 신용등급 변화, 연체·부실 전이 가능성을 우선 점검해 집중위험을 관리한다.",
- s:"포트폴리오 신용리스크 일반 개념", u:"https://www.hanacard.co.kr/ATTACH/WWW/pdf/disclosure/maintenance_system_annual_reports_2025_260413.pdf", d:"2026-04"
-},
-{
- id:4, cat:"카드금융", diff:"상",
- q:"시장금리 상승과 경기 둔화가 동시에 발생했다. 카드사 손익에 나타날 가능성이 가장 높은 조합은?",
- c:["조달비용 하락 + 연체율 하락","조달비용 상승 + 대손비용 상승 압력","가맹점수수료 자동 상승 + 대손비용 하락","여전채 금리 하락 + 카드론 손실률 하락"],
- a:1,
- e:"시장금리 상승은 여전채 등 조달비용을 높일 수 있고, 경기 둔화는 연체와 부실 가능성을 높여 대손비용 상승 압력으로 이어질 수 있다.",
- s:"카드사 조달구조·신용위험 일반 개념", u:"https://gongsi.crefia.or.kr/portal/creditcard/creditcardDisclosureDetail2", d:"2026-10"
-},
-{
- id:5, cat:"카드금융", diff:"상",
- q:"리볼빙 잔액이 증가했지만 이용 고객의 평균 신용도가 개선됐다. 가장 적절한 해석은?",
- c:["잔액 증가만으로 반드시 건전성이 악화됐다고 단정할 수 있다","신용도 개선만으로 건전성이 개선됐다고 단정할 수 있다","잔액, 고객 신용도, 연체 전이율, 이용행태를 함께 봐야 한다","리볼빙은 신용위험과 무관하다"],
- a:2,
- e:"단일 지표만으로 판단하기 어렵다. 잔액 증가, 고객구성 변화, 연체 전이율, 이용행태 등을 함께 봐야 실제 포트폴리오 위험을 판단할 수 있다.",
- s:"여신금융협회 리볼빙 공시", u:"https://gongsi.crefia.or.kr/portal/creditcard/creditcardDisclosureDetail2", d:"2026-10"
-},
-{
- id:6, cat:"카드업 규제", diff:"상",
- q:"가맹점 우대수수료 대상이 크게 확대될 경우 카드사에 나타날 수 있는 영향으로 가장 적절한 것은?",
- c:["가맹점수수료 수익성에 하방 압력이 생길 수 있다","카드론 금리가 자동으로 상승한다","여전채 발행이 금지된다","대손충당금이 자동 감소한다"],
- a:0,
- e:"우대수수료 대상 확대는 신용판매 수익성에 영향을 줄 수 있다. 다만 카드론 금리, 여전채 발행, 충당금이 자동으로 변하는 것은 아니다.",
- s:"금융위원회 영세·중소가맹점 우대수수료 정책", u:"https://fsc.go.kr/po010104/87498", d:"2026-08"
-},
-{
- id:7, cat:"하나카드", diff:"상",
- q:"하나카드가 '금융자산 성장'과 '리스크관리 역량 강화'를 동시에 추진하는 이유를 가장 잘 설명한 것은?",
- c:["외형 성장만 극대화하기 위해서","위험을 무조건 줄이기 위해서","수익성 있는 자산 성장을 추진하되 손실과 건전성 악화를 함께 통제하기 위해서","결제사업을 축소하기 위해서"],
- a:2,
- e:"금융자산 확대는 수익 기회를 만들지만 동시에 신용위험과 대손비용을 확대할 수 있다. 따라서 성장과 리스크관리의 병행이 핵심이다.",
- s:"하나카드 2025년 지배구조 및 보수체계 연차보고서", u:"https://www.hanacard.co.kr/ATTACH/WWW/pdf/disclosure/maintenance_system_annual_reports_2025_260413.pdf", d:"2026-04"
-},
-{
- id:8, cat:"결제산업", diff:"상",
- q:"온라인 결제 생태계에서 PG사와 VAN사의 역할 차이에 대한 설명으로 가장 적절한 것은?",
- c:["PG는 주로 온라인 결제대행, VAN은 승인·매입 데이터 중계 등 인프라 역할을 수행한다","둘은 법적으로 완전히 동일한 사업자다","VAN은 대출만 취급하고 PG는 보험만 취급한다","PG는 카드사보다 상위 감독기관이다"],
- a:0,
- e:"PG는 전자상거래에서 여러 온라인 가맹점의 결제를 대행하는 역할이 중심이고, VAN은 카드 승인·매입 관련 통신·중계 인프라 역할이 중심이다.",
- s:"전자금융·카드결제 일반 개념", u:"https://fsc.go.kr/po010104/87498", d:"2026-10"
-},
-{
- id:9, cat:"리스크관리", diff:"상",
- q:"Expected Loss가 증가했지만 실제 부도율은 아직 변하지 않았다. 가장 적절한 설명은?",
- c:["예상손실은 실제 부도 후에만 증가한다","PD, LGD, EAD 또는 미래전망 정보가 변해 예상손실이 먼저 증가할 수 있다","실제 부도율과 예상손실은 항상 동일하다","예상손실은 마케팅 비용을 뜻한다"],
- a:1,
- e:"예상손실은 부도확률, 손실률, 익스포저와 미래전망 정보를 반영하므로 실제 부도가 발생하기 전에도 증가할 수 있다.",
- s:"IFRS 9·신용리스크 일반 개념", u:"https://gongsi.crefia.or.kr/portal/creditcard/creditcardDisclosureDetail2", d:"2026-10"
-},
-{
- id:10, cat:"하나카드", diff:"상",
- q:"하나카드의 2026년 전략 방향을 고려할 때 가장 일관된 의사결정은?",
- c:["수익성이 낮더라도 모든 금융자산을 확대한다","리스크를 이유로 금융자산 성장을 전면 중단한다","수익성과 위험을 함께 보며 우량 자산 중심으로 성장 기반을 강화한다","기업·글로벌 사업을 모두 축소한다"],
- a:2,
- e:"하나카드는 금융자산 성장과 리스크관리 역량 강화를 동시에 제시하고 있어, 위험조정 관점에서 내실 있는 성장을 추구하는 판단이 가장 일관된다.",
- s:"하나카드 2025년 지배구조 및 보수체계 연차보고서", u:"https://www.hanacard.co.kr/ATTACH/WWW/pdf/disclosure/maintenance_system_annual_reports_2025_260413.pdf", d:"2026-04"
-},
-{
- id:11, cat:"리스크관리", diff:"상",
- q:"고객의 이용행태가 우수하고 연체 가능성이 낮아졌다고 판단될 때 한도전략으로 가장 적절한 것은?",
- c:["모든 고객의 한도를 동일하게 유지한다","위험수준과 수익성을 고려해 일부 우량고객의 한도 상향을 검토할 수 있다","항상 한도를 낮춘다","한도는 리스크와 무관하다"],
- a:1,
- e:"리스크전략은 위험이 낮고 이용행태가 우수한 고객에게 적정 한도 확대를 검토할 수 있다. 핵심은 일률적 제한이 아니라 위험과 수익의 균형이다.",
- s:"카드사 리스크전략 일반 개념", u:"https://gongsi.crefia.or.kr/portal/creditcard/creditcardDisclosureDetail2", d:"2026-10"
-},
-{
- id:12, cat:"카드업 규제", diff:"상",
- q:"2026년 하반기 영세·중소가맹점 우대수수료 정책을 공부할 때 가장 중요한 해석은?",
- c:["숫자만 암기하면 충분하다","정책이 가맹점 부담과 카드사 신용판매 수익성에 동시에 영향을 줄 수 있음을 이해해야 한다","카드금융과 동일한 규제다","환율정책의 일부다"],
- a:1,
- e:"시험에서는 적용대상·수수료율뿐 아니라 정책이 가맹점 부담 완화와 카드사의 신용판매 수익성에 어떤 영향을 미치는지 연결해서 볼 필요가 있다.",
- s:"금융위원회 영세·중소가맹점 우대수수료 정책", u:"https://fsc.go.kr/po010104/87498", d:"2026-08"
-}
-];
-
-const OX = [
-{id:101,q:"카드사의 리스크전략은 위험을 최소화하는 것이 유일한 목표다.",a:false,e:"리스크전략은 Risk와 Profit을 함께 고려해 최적 포트폴리오를 구성하는 것이 핵심이다."},
-{id:102,q:"시장금리 상승은 카드사의 여전채 신규 조달비용 상승 요인이 될 수 있다.",a:true,e:"카드사는 시장성 조달 의존도가 높아 시장금리 상승의 영향을 받을 수 있다."},
-{id:103,q:"Expected Loss는 일반적으로 PD, LGD, EAD와 관련된다.",a:true,e:"예상손실은 부도확률, 부도시손실률, 부도시익스포저를 핵심 요소로 본다."},
-{id:104,q:"현재 연체율이 낮으면 향후 신용위험도 반드시 낮다.",a:false,e:"연체율은 후행지표일 수 있어 이용행태, 신용도 변화 등 선행지표도 함께 봐야 한다."},
-{id:105,q:"리볼빙은 결제대금 일부를 이월할 수 있는 금융서비스다.",a:true,e:"일부결제금액이월약정은 일정 금액만 결제하고 나머지를 이월하는 구조다."},
-{id:106,q:"우량고객의 한도 상향은 리스크관리와 모순된다.",a:false,e:"위험이 낮고 이용행태가 우수한 고객에게 적정 한도를 부여하는 것도 리스크전략의 일부다."},
-{id:107,q:"가맹점 우대수수료 대상 확대는 카드사의 신용판매 수익성에 영향을 줄 수 있다.",a:true,e:"가맹점수수료 수익에 하방 압력이 생길 수 있다."},
-{id:108,q:"PG와 VAN은 역할이 완전히 동일하다.",a:false,e:"PG는 온라인 결제대행, VAN은 승인·매입 관련 중계 인프라 기능이 중심이다."},
-{id:109,q:"예상손실은 실제 부도가 발생한 뒤에만 인식할 수 있다.",a:false,e:"미래전망과 신용위험 변화를 반영해 실제 부도 전에도 예상손실이 증가할 수 있다."},
-{id:110,q:"특정 업종 익스포저가 지나치게 커지면 집중위험이 커질 수 있다.",a:true,e:"포트폴리오 리스크에서는 업종·고객군별 집중도를 관리한다."},
-{id:111,q:"하나카드의 2026년 전략은 금융자산 성장과 리스크관리 역량 강화를 동시에 포함한다.",a:true,e:"두 과제를 동시에 추진하는 것이 공개된 핵심전략의 한 축이다."},
-{id:112,q:"카드사의 건전성 관리는 수익성과 완전히 별개의 문제다.",a:false,e:"대손비용과 자산건전성은 손익과 자본효율에 직접 영향을 준다."},
-{id:113,q:"연체율 상승은 일반적으로 대손비용 상승 압력으로 이어질 수 있다.",a:true,e:"연체와 부실 증가는 예상손실 및 대손비용 부담을 높일 수 있다."},
-{id:114,q:"리스크관리에서 모든 고객에게 동일한 한도를 주는 것이 가장 정교한 전략이다.",a:false,e:"고객의 신용도, 상환능력, 이용행태 등에 따라 차등화하는 것이 일반적이다."},
-{id:115,q:"위험조정수익 관점에서는 명목수익률만으로 상품이나 고객군을 평가하기 어렵다.",a:true,e:"예상손실, 비용, 자본부담 등을 함께 고려해야 한다."}
-];
-
-const key="hana_quiz_v2";
-let st=JSON.parse(localStorage.getItem(key)||'{"mc":{},"wrong":[],"fav":[],"ox":{}}');
-let active=[],mi=0,sel=null,checked=false, oxActive=[],oi=0,oxAnswered=false;
-
-function save(){localStorage.setItem(key,JSON.stringify(st));stats()}
-function stats(){
- const m=Object.values(st.mc), c=m.filter(Boolean).length;
- document.getElementById("solved").textContent=m.length;
- document.getElementById("acc").textContent=m.length?Math.round(c/m.length*100)+"%":"0%";
- document.getElementById("oxSolved").textContent=Object.keys(st.ox).length;
- document.getElementById("wrongCnt").textContent=st.wrong.length;
-}
-function hide(){["home","mcPanel","oxPanel","bank","result"].forEach(id=>document.getElementById(id).classList.add("hidden"))}
-function goHome(){hide();document.getElementById("home").classList.remove("hidden");stats()}
-function shuf(a){return [...a].sort(()=>Math.random()-.5)}
-function cats(){
- const cs=[...new Set(MC.map(x=>x.cat))];
- document.getElementById("chips").innerHTML=cs.map(c=>`<button class="chip" onclick="startMC('cat','${c}')">${c} (${MC.filter(x=>x.cat===c).length})</button>`).join("");
-}
-function startMC(mode,cat){
- let pool=MC;
- if(mode==="wrong") pool=MC.filter(q=>st.wrong.includes(q.id));
- if(mode==="cat") pool=MC.filter(q=>q.cat===cat);
- if(!pool.length){alert("해당 문제 목록이 비어 있습니다.");return}
- active=shuf(pool).slice(0,Math.min(10,pool.length));mi=0;hide();document.getElementById("mcPanel").classList.remove("hidden");renderMC();
-}
-function renderMC(){
- const q=active[mi];sel=null;checked=false;
- document.getElementById("mcProg").textContent=`${mi+1} / ${active.length}`;
- document.getElementById("mcMeta").textContent=`${q.cat} · 난이도 ${q.diff}`;
- document.getElementById("mcBar").style.width=((mi)/active.length*100)+"%";
- document.getElementById("mcQ").textContent=q.q;
- document.getElementById("mcChoices").innerHTML=q.c.map((x,i)=>`<button class="choice" onclick="pick(${i},this)">${["①","②","③","④"][i]} ${x}</button>`).join("");
- document.getElementById("mcExplain").classList.add("hidden");
- document.getElementById("mcCheck").classList.remove("hidden");
- document.getElementById("mcNext").classList.add("hidden");
- document.getElementById("favBtn").textContent=st.fav.includes(q.id)?"★ 즐겨찾기":"☆ 즐겨찾기";
-}
+const MC=window.MC_BANK||[];const OX=window.OX_BANK||[];const key="hana_quiz_v3";let st=JSON.parse(localStorage.getItem(key)||'{"mc":{},"wrong":[],"fav":[],"ox":{}}');let active=[],mi=0,sel=null,checked=false,oxActive=[],oi=0,oxAnswered=false;
+function save(){localStorage.setItem(key,JSON.stringify(st));stats()}function stats(){const m=Object.values(st.mc),c=m.filter(Boolean).length;document.getElementById("solved").textContent=m.length;document.getElementById("acc").textContent=m.length?Math.round(c/m.length*100)+"%":"0%";document.getElementById("oxSolved").textContent=Object.keys(st.ox).length;document.getElementById("wrongCnt").textContent=st.wrong.length}function hide(){["home","mcPanel","oxPanel","bank","result"].forEach(id=>document.getElementById(id).classList.add("hidden"))}function goHome(){hide();document.getElementById("home").classList.remove("hidden");stats()}function shuf(a){return [...a].sort(()=>Math.random()-.5)}
+function cats(){const cs=[...new Set(MC.map(x=>x.cat))];document.getElementById("chips").innerHTML=cs.map(c=>`<button class="chip" onclick="startMC('cat','${c}')">${c} (${MC.filter(x=>x.cat===c).length})</button>`).join("")}
+function startMC(mode,cat){let pool=MC;if(mode==="wrong")pool=MC.filter(q=>st.wrong.includes(q.id));if(mode==="cat")pool=MC.filter(q=>q.cat===cat);if(!pool.length){alert("해당 문제 목록이 비어 있습니다.");return}active=shuf(pool).slice(0,Math.min(20,pool.length));mi=0;hide();document.getElementById("mcPanel").classList.remove("hidden");renderMC()}
+function renderMC(){const q=active[mi];sel=null;checked=false;document.getElementById("mcProg").textContent=`${mi+1} / ${active.length}`;document.getElementById("mcMeta").textContent=`${q.cat} · 난이도 ${q.diff}`;document.getElementById("mcBar").style.width=(mi/active.length*100)+"%";document.getElementById("mcQ").textContent=q.q;document.getElementById("mcChoices").innerHTML=q.c.map((x,i)=>`<button class="choice" onclick="pick(${i},this)">${["①","②","③","④"][i]} ${x}</button>`).join("");document.getElementById("mcExplain").classList.add("hidden");document.getElementById("mcCheck").classList.remove("hidden");document.getElementById("mcNext").classList.add("hidden");document.getElementById("favBtn").textContent=st.fav.includes(q.id)?"★ 즐겨찾기":"☆ 즐겨찾기"}
 function pick(i,el){if(checked)return;sel=i;document.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));el.classList.add("selected")}
-function checkMC(){
- if(sel===null){alert("보기를 선택해 주세요.");return}
- const q=active[mi],ok=sel===q.a;checked=true;st.mc[q.id]=ok;
- if(ok)st.wrong=st.wrong.filter(x=>x!==q.id);else if(!st.wrong.includes(q.id))st.wrong.push(q.id);
- document.querySelectorAll(".choice").forEach((el,i)=>{el.classList.remove("selected");if(i===q.a)el.classList.add("correct");else if(i===sel&&!ok)el.classList.add("wrong")});
- document.getElementById("mcExplain").innerHTML=`<h3 class="${ok?'good':'bad'}">${ok?'정답':'오답'} · ${["①","②","③","④"][q.a]}</h3><div>${q.e}</div><div class="source">출처: <a href="${q.u}" target="_blank">${q.s}</a><br>기준일: ${q.d}</div>`;
- document.getElementById("mcExplain").classList.remove("hidden");document.getElementById("mcCheck").classList.add("hidden");document.getElementById("mcNext").classList.remove("hidden");save();
-}
-function nextMC(){if(mi<active.length-1){mi++;renderMC()}else finish("객관식 세트를 완료했습니다.")}
-function toggleFav(){const id=active[mi].id;st.fav=st.fav.includes(id)?st.fav.filter(x=>x!==id):[...st.fav,id];save();document.getElementById("favBtn").textContent=st.fav.includes(id)?"★ 즐겨찾기":"☆ 즐겨찾기"}
-function startOX(){oxActive=shuf(OX);oi=0;hide();document.getElementById("oxPanel").classList.remove("hidden");renderOX()}
-function renderOX(){
- oxAnswered=false;const q=oxActive[oi];
- document.getElementById("oxProg").textContent=`${oi+1} / ${oxActive.length}`;
- document.getElementById("oxBar").style.width=((oi)/oxActive.length*100)+"%";
- document.getElementById("oxQ").textContent=q.q;
- document.getElementById("oxExplain").classList.add("hidden");document.getElementById("oxNext").classList.add("hidden");
- document.querySelectorAll(".oxbtn").forEach(b=>b.disabled=false);
-}
-function answerOX(ans){
- if(oxAnswered)return;oxAnswered=true;const q=oxActive[oi],ok=ans===q.a;st.ox[q.id]=ok;
- document.querySelectorAll(".oxbtn").forEach(b=>b.disabled=true);
- document.getElementById("oxExplain").innerHTML=`<h3 class="${ok?'good':'bad'}">${ok?'정답':'오답'} · 정답 ${q.a?'O':'X'}</h3><div>${q.e}</div>`;
- document.getElementById("oxExplain").classList.remove("hidden");document.getElementById("oxNext").classList.remove("hidden");save();
-}
-function nextOX(){if(oi<oxActive.length-1){oi++;renderOX()}else finish("OX 스피드 학습을 완료했습니다.")}
+function checkMC(){if(sel===null){alert("보기를 선택해 주세요.");return}const q=active[mi],ok=sel===q.a;checked=true;st.mc[q.id]=ok;if(ok)st.wrong=st.wrong.filter(x=>x!==q.id);else if(!st.wrong.includes(q.id))st.wrong.push(q.id);document.querySelectorAll(".choice").forEach((el,i)=>{el.classList.remove("selected");if(i===q.a)el.classList.add("correct");else if(i===sel&&!ok)el.classList.add("wrong")});document.getElementById("mcExplain").innerHTML=`<h3 class="${ok?'good':'bad'}">${ok?'정답':'오답'} · ${["①","②","③","④"][q.a]}</h3><div>${q.e}</div><div class="source">출처: <a href="${q.u}" target="_blank" rel="noopener">${q.s}</a><br>기준일: ${q.d}</div>`;document.getElementById("mcExplain").classList.remove("hidden");document.getElementById("mcCheck").classList.add("hidden");document.getElementById("mcNext").classList.remove("hidden");save()}
+function nextMC(){if(mi<active.length-1){mi++;renderMC()}else finish("객관식 20문제 세트를 완료했습니다.")}function toggleFav(){const id=active[mi].id;st.fav=st.fav.includes(id)?st.fav.filter(x=>x!==id):[...st.fav,id];save();document.getElementById("favBtn").textContent=st.fav.includes(id)?"★ 즐겨찾기":"☆ 즐겨찾기"}
+function startOX(){oxActive=shuf(OX).slice(0,Math.min(30,OX.length));oi=0;hide();document.getElementById("oxPanel").classList.remove("hidden");renderOX()}function renderOX(){oxAnswered=false;const q=oxActive[oi];document.getElementById("oxProg").textContent=`${oi+1} / ${oxActive.length}`;document.getElementById("oxBar").style.width=(oi/oxActive.length*100)+"%";document.getElementById("oxQ").textContent=q.q;document.getElementById("oxExplain").classList.add("hidden");document.getElementById("oxNext").classList.add("hidden");document.querySelectorAll(".oxbtn").forEach(b=>b.disabled=false)}function answerOX(ans){if(oxAnswered)return;oxAnswered=true;const q=oxActive[oi],ok=ans===q.a;st.ox[q.id]=ok;document.querySelectorAll(".oxbtn").forEach(b=>b.disabled=true);document.getElementById("oxExplain").innerHTML=`<h3 class="${ok?'good':'bad'}">${ok?'정답':'오답'} · 정답 ${q.a?'O':'X'}</h3><div>${q.e}</div><div class="source">출처: <a href="${q.u}" target="_blank" rel="noopener">${q.s}</a><br>기준일: ${q.d}</div>`;document.getElementById("oxExplain").classList.remove("hidden");document.getElementById("oxNext").classList.remove("hidden");save()}function nextOX(){if(oi<oxActive.length-1){oi++;renderOX()}else finish("OX 30문제 회독을 완료했습니다.")}
 function finish(msg){hide();document.getElementById("result").classList.remove("hidden");document.getElementById("resultText").innerHTML=`<p><b>${msg}</b></p><p class="muted">오답은 '오답만' 메뉴에서 반복할 수 있습니다.</p>`}
-function showBank(){
- hide();document.getElementById("bank").classList.remove("hidden");
- const m=MC.map(q=>`<div class="list-item"><span class="badge">${q.cat}</span><span class="badge">난이도 ${q.diff}</span><b style="display:block;margin-top:7px">Q${q.id}. ${q.q}</b><div class="mini">${st.mc[q.id]===true?'정답 기록':st.mc[q.id]===false?'오답 기록':'미학습'}</div></div>`).join("");
- const o=OX.map(q=>`<div class="list-item"><span class="badge">OX</span><b style="display:block;margin-top:7px">${q.q}</b><div class="mini">${st.ox[q.id]===true?'정답 기록':st.ox[q.id]===false?'오답 기록':'미학습'}</div></div>`).join("");
- document.getElementById("bankList").innerHTML="<h3>객관식</h3>"+m+"<h3 style='margin-top:20px'>OX</h3>"+o;
-}
-cats();stats();goHome();
+function showBank(){hide();document.getElementById("bank").classList.remove("hidden");const m=MC.map(q=>`<div class="list-item"><span class="badge">${q.cat}</span><span class="badge">난이도 ${q.diff}</span><b style="display:block;margin-top:7px">Q${q.id}. ${q.q}</b><div class="mini">${st.mc[q.id]===true?'정답 기록':st.mc[q.id]===false?'오답 기록':'미학습'}</div></div>`).join("");const o=OX.map(q=>`<div class="list-item"><span class="badge">OX</span><b style="display:block;margin-top:7px">${q.q}</b><div class="mini">${st.ox[q.id]===true?'정답 기록':st.ox[q.id]===false?'오답 기록':'미학습'}</div></div>`).join("");document.getElementById("bankList").innerHTML=`<h3>객관식 ${MC.length}문제</h3>`+m+`<h3 style="margin-top:20px">OX ${OX.length}문제</h3>`+o}
+if(!MC.length||!OX.length){document.body.innerHTML='<div style="padding:40px;font-family:sans-serif">문제 데이터를 불러오지 못했습니다. 새로고침해 주세요.</div>'}else{cats();stats();goHome()}
 </script>
-</body>
-</html>
+</body></html>
